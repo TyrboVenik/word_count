@@ -1,0 +1,12 @@
+linters:
+  enable:
+    - govet          # Vet examines Go source code and reports suspicious errors
+    - errcheck       # Check for unchecked errors in your code
+    - gocyclo        # Computes and checks the cyclomatic complexity of functions
+    - goconst        # Finds repeated strings and suggests using a constant
+    - lll            # Check line length
+    - staticcheck    # Static analysis checks
+    - unused         # Detect unused variables and imports
+
+lll:
+  line-length: 120
