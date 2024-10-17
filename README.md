@@ -8,6 +8,7 @@ CLI that calculates the top words used in the provided articles.
 - [Description](#description)
 - [Contributing](#contributing)
 - [Comments](#comments)
+- [Improvements](#improvements)
 
 ## Usage
 Requirements: Golang
@@ -67,7 +68,7 @@ The output should be pretty JSON printed to the stdout.
 - The bottleneck here is the request limit from the server side. After receiving too many requests, it blocks the client for approximately 4 minutes and returns 999 status code for any request (even HEAD or OPTIONS). It seems that the server backend has a request limit for a specified time frame. Whether you make a lot of requests and wait for the block, or limit your requests, the long-term result is approximately the same. The limitation can be overcome by using proxy servers, or it is possible to separate the articles list into batches, processing those batches on different machines with further aggregation. This part should be outside the scope of the task. Running the program with 2 RPS limit seems to be safe, but blocks are still possible.
 - Added minimal linters and github actions setup.
 
-## Posible improvement
+## Improvements
 
 - Proxy usage, horizontal scaling or both (described in the comment section).
 - Better error handling with retries. Now, if the website goes down, all failing articles will be skipped.
