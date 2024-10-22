@@ -139,8 +139,7 @@ func (service *WordCounterServiceImpl) worker(
 
 func (service *WordCounterServiceImpl) logProgress(progress *int64, total int, startTime time.Time) {
 	if service.progress != 0 {
-		atomic.AddInt64(progress, 1)
-		s := atomic.LoadInt64(progress)
+		s := atomic.AddInt64(progress, 1)
 		if int(s)%service.progress == 0 {
 			log.Printf("progress [%v / %v]: %v", s, total, time.Since(startTime))
 		}
